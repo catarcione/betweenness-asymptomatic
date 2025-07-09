@@ -8,7 +8,7 @@ def si_epidemic(graph, beta, initial_infected_count=1, max_iterations=None, max_
     Parameters:
     - graph: NetworkX graph
     - beta: Probability of infection per contact
-    - initial_infected_count: Number of initually infected nodes
+    - initial_infected_count: Number of initially infected nodes
     - max_iterations: Maximum number of iterations (None to ignore)
     - max_infected_frac: Maximum fraction of infected nodes before stopping
 
@@ -33,7 +33,7 @@ def si_epidemic(graph, beta, initial_infected_count=1, max_iterations=None, max_
         infected_list = list(infected)
         random.shuffle(infected_list) # Shuffle list of infected nodes to avoid bias
 
-        for node in infected:
+        for node in infected_list:
             # Iterate over neighbors of the infected node that are not already infected
             for neighbor in set(graph.neighbors(node)) - infected:
                 # Guarantee that maximum number of infected nodes is not exceeded
