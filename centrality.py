@@ -19,19 +19,19 @@ def contact(graph, observed_nodes):
 
     Parameters:
     - graph: NetworkX graph
-    - observed_nodes: List of observed infected nodes
+    - observed_nodes: Set of observed infected nodes
     
     Returns:
     - A dictionary with the fraction of observed infected neighbors for each node.
     """
-    contact = {}
+    result = {}
     for node in graph.nodes():
         neighbors = list(graph.neighbors(node))
         num_infected_neighbors = sum(1 for neighbor in neighbors if neighbor in observed_nodes)
         frac_infected_neighbors = num_infected_neighbors/len(neighbors) if neighbors else 0.0
-        contact[node] = frac_infected_neighbors
+        result[node] = frac_infected_neighbors
     
-    return contact
+    return result
 
 def observed_betweenness(graph, observed_nodes):
     """
@@ -41,10 +41,11 @@ def observed_betweenness(graph, observed_nodes):
 
     Parameters:
     - graph: NetworkX graph
-    - observed_nodes: List of observed infected nodes
+    - observed_nodes: Set of observed infected nodes
 
     Returns:
-    - A dictionary with the betweenness centrality scores.
+    - A dictionary with the observed betweenness centrality scores.
     """
+
 
     return nx.betweenness_centrality_subset(graph, sources=observed_nodes, targets=observed_nodes)
