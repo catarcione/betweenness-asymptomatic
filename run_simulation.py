@@ -59,7 +59,7 @@ def main():
 
     # Compute AUC scores
     strategies = {"observed betweenness": obs_betw, "contact": contact, "degree": degree}
-    score_strategies = {f"{key}": score.auc_score(infected, strategy, observed) for key, strategy in strategies.items()}
+    score_strategies = {f"{key}": score.auc_score(infected, strategy, observed)["auc"] for key, strategy in strategies.items()}
     
     # Save results
     data = {
