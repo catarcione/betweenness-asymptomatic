@@ -21,7 +21,7 @@ def main():
     parser.add_argument("--network_type", type=str, required=True)
     parser.add_argument("--initial_infected_count", type=int, default=1)
     parser.add_argument("--n_nodes", type=int, default=3000)
-    parser.add_argument("--m_param", type=int, default=4)
+    parser.add_argument("--m_param", type=int, default=4, help="BA: Number of edges each new node attaches to")
     parser.add_argument("--k_param", type=int, default=8, help="WS: Each node is joined with its k nearest neighbors")
     parser.add_argument("--p_rewire", type=float, default=0.3, help="WS: Rewiring probability")
     parser.add_argument("--p_er", type=float, default=8/3000, help="ER: Probability for edge creation")
